@@ -1,4 +1,5 @@
 const Schema = require('@weo-edu/schema')
+const mock = require('../mock')
 const {
   displayName,
   description,
@@ -36,7 +37,7 @@ const lessons = Schema()
   .prop(/^.*$/, lesson)
   .others(false)
 
-module.exports = Schema()
+const Module = Schema()
   .prop('displayName', displayName)
   .prop('description', description)
   .prop('owner', firebaseRef)
@@ -49,3 +50,6 @@ module.exports = Schema()
   .prop('featured', Schema('boolean'))
   .prop('assigns', Schema('number'))
   .required(['displayName', 'description', 'owner', 'imageUrl'])
+
+exports.mock = mock(Module)
+exports.default = Module

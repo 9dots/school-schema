@@ -1,15 +1,17 @@
 const Schema = require('@weo-edu/schema')
 
-const url = Schema('string').pattern(
-  /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[\:?\d]*)\S*$/,
-  'not_valid_url'
-)
+const url = {
+  type: 'string',
+  format: 'uri'
+}
 
 const firebaseRefObject = Schema()
   .prop(/^.*$/, { type: 'boolean' })
   .others(false, 'invalid_keys')
 
-const firebaseRef = Schema('string').min(1, 'invalid_firebase_ref')
+const firebaseRef = Schema('string')
+  // .min(6, 'invalid_firebase_ref')
+  .pattern(/[a-zA-Z0-9]{6,}$/, 'invalid_firebase_ref')
 
 const moduleObject = Schema()
   .prop('moduleRef', firebaseRef)
@@ -23,12 +25,17 @@ const moduleRefObject = Schema()
 const email = Schema('string').format('email', 'Invalid email address')
 
 const displayName = Schema('string')
-  .min(1, 'displayName_too_short')
+  .min(2, 'displayName_too_short')
   .max(25, 'displayName_too_long')
 
 const description = Schema('string')
   .min(1)
   .max(200)
+
+const progress = Schema('number')
+  .multiple(1.0)
+  .min(1)
+  .max(100)
 
 const activityType = Schema('string').enum([
   'listen',
@@ -45,6 +52,11 @@ const ethnicity = Schema('string').enum([
   'asian',
   'pacific islander'
 ])
+
+const score = Schema('integer')
+  .max(1000)
+  .min(1)
+  .multiple(1.0)
 
 const date = Schema('number')
 const lesson = Schema('string').min(0)
@@ -74,7 +86,9 @@ module.exports = {
   displayName,
   description,
   ethnicity,
+  progress,
   lesson,
+  score,
   email,
   grade,
   uuid,

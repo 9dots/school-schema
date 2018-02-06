@@ -1,5 +1,6 @@
 const Schema = require('@weo-edu/schema')
 const validate = require('@weo-edu/validate')
+const mock = require('../mock')
 const {
   firebaseRef,
   displayName,
@@ -76,6 +77,7 @@ const addToSchool = Schema()
 const setNav = Schema().prop('uid', firebaseRef)
 
 exports.default = User
+exports.mock = mock(User)
 exports.setCurrentSchool = validate(setCurrentSchool)
 exports.teacherSignUp = validate(teacherSignUp)
 exports.createStudent = validate(createStudent)

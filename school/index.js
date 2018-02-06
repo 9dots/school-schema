@@ -1,5 +1,6 @@
 const Schema = require('@weo-edu/schema')
 const validate = require('@weo-edu/validate')
+const mock = require('../mock')
 const { firebaseRefObject, displayName, firebaseRef, url } = require('../utils')
 
 const School = Schema()
@@ -33,6 +34,7 @@ const removeTeacher = Schema()
   .others(false, 'invalid_keys')
 
 exports.default = School
+exports.mock = mock(School)
 exports.create = validate(create)
 exports.addTeacher = validate(addTeacher)
 exports.removeTeacher = validate(removeTeacher)

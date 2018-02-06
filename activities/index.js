@@ -1,9 +1,12 @@
 const Schema = require('@weo-edu/schema')
+const mock = require('../mock')
 const {
   activityType,
   firebaseRef,
   lessonTags,
   ethnicity,
+  progress,
+  score,
   grade,
   url
 } = require('../utils')
@@ -28,16 +31,15 @@ const properties = Schema()
 const subactivity = Schema()
   .prop('url', url)
   .prop('type', activityType)
-  .prop('score', Schema('number'))
+  .prop('score', score)
   .prop('started', Schema('boolean'))
   .prop('completed', Schema('boolean'))
-  .prop('progress', Schema('number'))
+  .prop('progress', progress)
   .required(['url', 'started', 'completed', 'progress'])
 
 const subactivities = Schema('array').items(subactivity.schema)
 
-// TODO: better name for module instance
-module.exports = Schema()
+const activities = Schema()
   .prop('student', firebaseRef)
   .prop('module', firebaseRef)
   .prop('teacher', firebaseRef)
@@ -45,20 +47,27 @@ module.exports = Schema()
   .prop('activity', firebaseRef)
   .prop('moduleInstance', firebaseRef)
   .prop('properties', properties)
-  .prop('score', Schema('number'))
+  .prop('score', score)
   .prop('started', Schema('boolean'))
   .prop('completed', Schema('boolean'))
-  .prop('progress', Schema('number'))
+  .prop('progress', progress)
   .prop('subactivities', subactivities)
   .prop('url', url)
   .required([
-    'student',
-    'module',
-    'teacher',
-    'class',
     'moduleInstance',
+    'subactivities',
+    'completed',
     'activity',
-    'score',
+    'progress',
+    'student',
+    'teacher',
     'started',
-    'completed'
+    'module',
+    'class',
+    'score',
+    'url'
   ])
+
+// TODO: better name for module instance
+exports.mock = mock(activites)
+exports.default = activities
