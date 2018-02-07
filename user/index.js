@@ -23,10 +23,9 @@ const name = Schema()
   .required(['given', 'family'])
 
 const gender = Schema('string').enum(['male', 'female', 'other'])
-const schools = Schema().prop(
-  /^.*$/,
-  Schema('string').enum(['teacher', 'student'])
-)
+const schools = Schema()
+  .prop(/^[a-zA-Z0-9]{6,}$/, Schema('string').enum(['teacher', 'student']))
+  .others(false)
 
 const User = Schema()
   .prop('displayName', displayName)
@@ -35,17 +34,12 @@ const User = Schema()
   .prop('birthDate', date)
   .prop('ethnicity', ethnicity)
   .prop('gender', gender)
-  .prop('schools', schools)
+  .prop('schools', { ...schools.schema, minProperties: 2 })
   // .prop('assignedLesson', assignedLesson)
   .prop('splashPage', url)
-  .required([
-    'displayName',
-    'avatarUrl',
-    'name',
-    'birthDate',
-    'ethnicity',
-    'gender'
-  ])
+  .required(['displayName', 'avatarUrl', 'name'])
+
+console.log(User.schema)
 
 const teacherSignUp = Schema()
   .prop('displayName', displayName)
@@ -77,7 +71,6 @@ const addToSchool = Schema()
 const setNav = Schema().prop('uid', firebaseRef)
 
 exports.default = User
-exports.mock = mock(User)
 exports.setCurrentSchool = validate(setCurrentSchool)
 exports.teacherSignUp = validate(teacherSignUp)
 exports.createStudent = validate(createStudent)

@@ -58,7 +58,7 @@ const score = Schema('integer')
   .min(1)
   .multiple(1.0)
 
-const date = Schema('number')
+const date = { type: 'string', format: 'date-time' }
 const lesson = Schema('string').min(0)
 const uuid = Schema('string').min(10)
 const grade = Schema('string').enum([

@@ -69,5 +69,4 @@ const activities = Schema()
   ])
 
 // TODO: better name for module instance
-exports.mock = mock(activites)
 exports.default = activities

@@ -34,7 +34,6 @@ const removeTeacher = Schema()
   .others(false, 'invalid_keys')
 
 exports.default = School
-exports.mock = mock(School)
 exports.create = validate(create)
 exports.addTeacher = validate(addTeacher)
 exports.removeTeacher = validate(removeTeacher)

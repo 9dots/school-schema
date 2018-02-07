@@ -62,7 +62,6 @@ const removeStudent = Schema()
   .required(['class', 'student', 'uid'], 'missing_required_field')
 
 exports.default = Class
-exports.mock = mock(Class)
 exports.createClass = validate(createClass)
 exports.addStudent = validate(addStudent)
 exports.removeStudent = validate(removeStudent)

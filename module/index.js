@@ -51,5 +51,4 @@ const Module = Schema()
   .prop('assigns', Schema('number'))
   .required(['displayName', 'description', 'owner', 'imageUrl'])
 
-exports.mock = mock(Module)
 exports.default = Module
