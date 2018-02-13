@@ -1,5 +1,4 @@
 const Schema = require('@weo-edu/schema')
-const mock = require('../mock')
 const {
   displayName,
   description,
@@ -22,8 +21,14 @@ const activities = Schema()
   .others(false)
 
 const duration = Schema()
-  .prop('time', Schema('string'))
+  .prop(
+    'time',
+    Schema('number')
+      .min(1)
+      .max(60)
+  )
   .prop('unit', Schema('string').enum(['minutes', 'hours', 'days']))
+  .required(['time', 'unit'])
 
 const lesson = Schema()
   .prop('displayName', displayName)
@@ -37,6 +42,12 @@ const lessons = Schema()
   .prop(/^.*$/, lesson)
   .others(false)
 
+const addCourse = Schema()
+  .prop('class', firebaseRef)
+  .prop('module', firebaseRef)
+  .required(['class', 'module'])
+  .others(false)
+
 const Module = Schema()
   .prop('displayName', displayName)
   .prop('description', description)
@@ -48,7 +59,13 @@ const Module = Schema()
   .prop('difficulty', Schema('string').enum(['A', 'B', 'C', 'D', 'E']))
   .prop('published', Schema('boolean'))
   .prop('featured', Schema('boolean'))
-  .prop('assigns', Schema('number'))
+  .prop(
+    'assigns',
+    Schema('number')
+      .min(0)
+      .multiple(1.0)
+  )
   .required(['displayName', 'description', 'owner', 'imageUrl'])
 
 exports.default = Module
+exports.addCourse = addCourse

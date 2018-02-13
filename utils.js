@@ -13,15 +13,6 @@ const firebaseRef = Schema('string')
   // .min(6, 'invalid_firebase_ref')
   .pattern(/[a-zA-Z0-9]{6,}$/, 'invalid_firebase_ref')
 
-const moduleObject = Schema()
-  .prop('moduleRef', firebaseRef)
-  // .prop('active', Schema('boolean'))
-  .required(['moduleRef'])
-
-const moduleRefObject = Schema()
-  .prop(/^.*$/, moduleObject)
-  .others(false, 'invalid_keys')
-
 const email = Schema('string').format('email', 'Invalid email address')
 
 const displayName = Schema('string')
@@ -80,7 +71,6 @@ const grade = Schema('string').enum([
 module.exports = {
   lessonTags: firebaseRefObject,
   firebaseRefObject,
-  moduleRefObject,
   activityType,
   firebaseRef,
   displayName,

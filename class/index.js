@@ -1,9 +1,8 @@
 const Schema = require('@weo-edu/schema')
 const validate = require('@weo-edu/validate')
-const mock = require('../mock')
+const Module = require('../module').default
 const {
   firebaseRefObject,
-  moduleRefObject,
   displayName,
   firebaseRef,
   grade,
@@ -22,6 +21,10 @@ const stats = Schema()
   .prop('totals', totalStat)
   .required(['activityId', 'moduleInstance'])
 
+const moduleRefObject = Schema()
+  .prop(/^.*$/, Module)
+  .others(false, 'invalid_keys')
+
 const statsObject = Schema()
   .prop(/^.*$/, stats)
   .others(false)
@@ -32,7 +35,7 @@ const Class = Schema()
   .prop('grade', grade)
   .prop('school', firebaseRef)
   .prop('owner', firebaseRef)
-  .prop('modules', moduleRefObject)
+  .prop('modules', { ...moduleRefObject.schema, minProperties: 2 })
   .prop('teachers', firebaseRefObject)
   .prop('students', firebaseRefObject)
   .prop('stats', statsObject)
