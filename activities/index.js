@@ -1,5 +1,4 @@
 const Schema = require('@weo-edu/schema')
-const mock = require('../mock')
 const {
   activityType,
   firebaseRef,

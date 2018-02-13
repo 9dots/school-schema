@@ -42,12 +42,6 @@ const lessons = Schema()
   .prop(/^.*$/, lesson)
   .others(false)
 
-const addCourse = Schema()
-  .prop('class', firebaseRef)
-  .prop('module', firebaseRef)
-  .required(['class', 'module'])
-  .others(false)
-
 const Module = Schema()
   .prop('displayName', displayName)
   .prop('description', description)
@@ -68,4 +62,3 @@ const Module = Schema()
   .required(['displayName', 'description', 'owner', 'imageUrl'])
 
 exports.default = Module
-exports.addCourse = addCourse

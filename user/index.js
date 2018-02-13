@@ -1,21 +1,20 @@
 const Schema = require('@weo-edu/schema')
 const validate = require('@weo-edu/validate')
-const mock = require('../mock')
 const {
   firebaseRef,
   displayName,
   ethnicity,
-  moduleId,
-  lesson,
+  // moduleId,
+  // lesson,
   email,
   date,
   url
 } = require('../utils')
 
-const assignedLesson = Schema()
-  .prop('class', firebaseRef)
-  .prop('module', moduleId)
-  .prop('lesson', lesson)
+// const assignedLesson = Schema()
+//   .prop('class', firebaseRef)
+//   .prop('module', moduleId)
+//   .prop('lesson', lesson)
 
 const name = Schema()
   .prop('given', displayName)
@@ -37,36 +36,30 @@ const User = Schema()
   .prop('schools', { ...schools.schema, minProperties: 2 })
   // .prop('assignedLesson', assignedLesson)
   .prop('splashPage', url)
-  .required(['displayName', 'avatarUrl', 'name'])
-
-console.log(User.schema)
+  .required(['displayName', 'avatarUrl', 'name'], 'missing_required_field')
 
 const teacherSignUp = Schema()
   .prop('displayName', displayName)
   .prop('school', firebaseRef)
-  .prop('uid', firebaseRef)
   .prop('name', name)
-  .required(['displayName', 'name', 'school', 'uid'])
+  .required(['displayName', 'name', 'school'], 'missing_required_field')
 
 const createStudent = Schema()
   .prop('studentId', firebaseRef)
   .prop('school', firebaseRef)
   .prop('email', email)
-  .prop('uid', firebaseRef)
   .prop('name', name)
-  .required(['studentId', 'name', 'school', 'uid'])
+  .required(['studentId', 'name', 'school'], 'missing_required_field')
 
 const setCurrentSchool = Schema()
   .prop('school', firebaseRef)
-  .prop('uid', firebaseRef)
-  .required(['school', 'uid'])
+  .required(['school'], 'missing_required_field')
 
 const addToSchool = Schema()
   .prop('school', firebaseRef)
-  .prop('uid', firebaseRef)
   .prop('user', firebaseRef)
   .prop('role', Schema('string').enum(['teacher', 'student']))
-  .required(['school', 'uid'])
+  .required(['school'], 'missing_required_field')
 
 const setNav = Schema().prop('uid', firebaseRef)
 

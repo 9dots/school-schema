@@ -1,6 +1,5 @@
 const Schema = require('@weo-edu/schema')
 const validate = require('@weo-edu/validate')
-const mock = require('../mock')
 const { firebaseRefObject, displayName, firebaseRef, url } = require('../utils')
 
 const School = Schema()
@@ -15,22 +14,19 @@ const School = Schema()
 const create = Schema()
   .prop('imageUrl', url)
   .prop('displayName', displayName)
-  .prop('uid', firebaseRef)
-  .required(['displayName', 'uid'], 'missing_required_field')
+  .required(['displayName'], 'missing_required_field')
   .others(false, 'invalid_keys')
 
 const addTeacher = Schema()
-  .prop('uid', firebaseRef)
   .prop('school', firebaseRef)
   .prop('teacher', firebaseRef)
-  .required(['school', 'uid', 'teacher'], 'missing_required_field')
+  .required(['school', 'teacher'], 'missing_required_field')
   .others(false, 'invalid_keys')
 
 const removeTeacher = Schema()
-  .prop('uid', firebaseRef)
   .prop('school', firebaseRef)
   .prop('teacher', firebaseRef)
-  .required(['school', 'uid', 'teacher'], 'missing_required_field')
+  .required(['school', 'teacher'], 'missing_required_field')
   .others(false, 'invalid_keys')
 
 exports.default = School
