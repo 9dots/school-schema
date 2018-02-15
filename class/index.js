@@ -1,6 +1,6 @@
 const Schema = require('@weo-edu/schema')
 const validate = require('@weo-edu/validate')
-const Module = require('../module').default
+const Course = require('../course').default
 const {
   firebaseRefObject,
   displayName,
@@ -22,7 +22,7 @@ const stats = Schema()
   .required(['activityId', 'moduleInstance'])
 
 const moduleRefObject = Schema()
-  .prop(/^.*$/, Module)
+  .prop(/^.*$/, Course)
   .others(false, 'invalid_keys')
 
 const statsObject = Schema()
