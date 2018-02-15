@@ -61,7 +61,9 @@ const addToSchool = Schema()
   .prop('role', Schema('string').enum(['teacher', 'student']))
   .required(['school'], 'missing_required_field')
 
-const setNav = Schema().prop('uid', firebaseRef)
+const setNav = Schema()
+  .prop('uid', firebaseRef)
+  .prop('class', firebaseRef)
 
 exports.default = User
 exports.setCurrentSchool = validate(setCurrentSchool)

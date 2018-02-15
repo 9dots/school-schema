@@ -15,6 +15,7 @@ const activity = Schema()
   .prop('displayName', displayName)
   .prop('url', url)
   .prop('type', activityType)
+  .prop('id', Schema('string').faker('random.uuid'))
   .prop(
     'index',
     Schema('number')
@@ -39,6 +40,7 @@ const lesson = Schema()
   .prop('displayName', displayName)
   .prop('description', description)
   .prop('tasks', activities)
+  .prop('id', Schema('string').faker('random.uuid'))
   .prop(
     'index',
     Schema('number')
