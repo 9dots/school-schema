@@ -65,7 +65,7 @@ const removeStudent = Schema()
 const addCourse = Schema()
   .prop('class', firebaseRef)
   .prop('course', firebaseRef)
-  .required(['class', 'module'], 'missing_required_field')
+  .required(['class', 'course'], 'missing_required_field')
   .others(false, 'invalid_fields')
 
 exports.default = Class
