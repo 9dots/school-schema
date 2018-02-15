@@ -18,8 +18,9 @@
   "homepage": "https://github.com/9dots/school-schema#readme",
   "dependencies": {
     "@f/map": "^1.5.3",
-    "@weo-edu/schema": "^0.1.11",
     "@weo-edu/validate": "^2.12.7",
+    "faker": "^4.1.0",
+    "firebase-admin": "^5.8.2",
     "json-schema-faker": "^0.5.0-rc12"
   },
   "devDependencies": {

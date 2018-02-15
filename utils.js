@@ -2,11 +2,18 @@ const Schema = require('@weo-edu/schema')
 
 const url = {
   type: 'string',
-  format: 'uri'
+  format: 'uri',
+  faker: 'internet.url'
+}
+
+const imageUrl = {
+  type: 'string',
+  format: 'uri',
+  faker: 'image.imageUrl'
 }
 
 const firebaseRefObject = Schema()
-  .prop(/^.*$/, { type: 'boolean' })
+  .prop(/^[a-zA-Z]{2,}$/, { type: 'boolean' })
   .others(false, 'invalid_keys')
 
 const firebaseRef = Schema('string')
@@ -18,10 +25,12 @@ const email = Schema('string').format('email', 'Invalid email address')
 const displayName = Schema('string')
   .min(2, 'displayName_too_short')
   .max(25, 'displayName_too_long')
+  .faker('random.words')
 
 const description = Schema('string')
   .min(1)
   .max(200)
+  .faker('lorem.sentences')
 
 const progress = Schema('number')
   .multiple(1.0)
@@ -44,7 +53,7 @@ const ethnicity = Schema('string').enum([
   'pacific islander'
 ])
 
-const score = Schema('integer')
+const score = Schema('number')
   .max(1000)
   .min(1)
   .multiple(1.0)
@@ -69,13 +78,14 @@ const grade = Schema('string').enum([
 ])
 
 module.exports = {
-  lessonTags: firebaseRefObject,
+  lessonTags: { ...firebaseRefObject.schema, minProperties: 1 },
   firebaseRefObject,
   activityType,
   firebaseRef,
   displayName,
   description,
   ethnicity,
+  imageUrl,
   progress,
   lesson,
   score,

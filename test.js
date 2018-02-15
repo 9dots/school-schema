@@ -1,3 +1,4 @@
 const { mock } = require('./index')
+const upload = require('./upload')
 
-mock.class.then(console.log)
+mock.module.then(upload)
