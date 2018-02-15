@@ -4,8 +4,8 @@ admin.initializeApp({
   credential: admin.credential.cert('./secrets.json')
 })
 
-module.exports = data =>
+module.exports = (collection, data) =>
   admin
     .firestore()
-    .collection('modules')
+    .collection(collection)
     .add(data)

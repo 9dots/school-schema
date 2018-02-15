@@ -22,9 +22,7 @@ const activity = Schema()
       .faker('random.number')
   )
   .required(['displayName', 'url', 'type', 'index'])
-const activities = Schema()
-  .prop(/^[a-zA-Z0-9]{6,}$/, activity)
-  .others(false)
+const activities = Schema('array').items(activity.schema)
 
 const duration = Schema()
   .prop(
@@ -40,7 +38,7 @@ const duration = Schema()
 const lesson = Schema()
   .prop('displayName', displayName)
   .prop('description', description)
-  .prop('tasks', { ...activities.schema, minProperties: 4 })
+  .prop('tasks', activities)
   .prop(
     'index',
     Schema('number')
@@ -50,16 +48,14 @@ const lesson = Schema()
   .prop('tags', lessonTags)
   .required(['displayName', 'description', 'index'])
 
-const lessons = Schema()
-  .prop(/^[a-zA-Z0-9]{6,}$/, lesson)
-  .others(false)
+const lessons = Schema('array').items(lesson.schema)
 
-const Module = Schema()
+const Course = Schema()
   .prop('displayName', displayName)
   .prop('description', description)
   .prop('owner', firebaseRef)
   .prop('duration', duration)
-  .prop('lessons', { ...lessons.schema, minProperties: 6 })
+  .prop('lessons', lessons)
   .prop('tags', lessonTags)
   .prop('imageUrl', imageUrl)
   .prop('difficulty', Schema('string').enum(['A', 'B', 'C', 'D', 'E']))
@@ -73,4 +69,4 @@ const Module = Schema()
   )
   .required(['displayName', 'description', 'owner', 'imageUrl'])
 
-exports.default = Module
+exports.default = Course
