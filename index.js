@@ -3,9 +3,10 @@ const map = require('@f/map')
 
 const schemas = {
   activities: require('./activities'),
-  class: require('./class'),
+  module: require('./module'),
   course: require('./course'),
   school: require('./school'),
+  class: require('./class'),
   user: require('./user')
 }
 

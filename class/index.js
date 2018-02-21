@@ -1,6 +1,6 @@
 const Schema = require('@weo-edu/schema')
 const validate = require('@weo-edu/validate')
-const Course = require('../course').default
+const { default: Course, lesson } = require('../course')
 const {
   firebaseRefObject,
   displayName,
@@ -9,6 +9,10 @@ const {
   uuid
 } = require('../utils')
 
+const moduleRefObject = Schema()
+  .prop(/^.*$/, Course)
+  .others(false, 'invalid_keys')
+
 const totalStat = Schema()
   .prop('score', Schema('number'))
   .prop('started', Schema('number'))
@@ -16,14 +20,11 @@ const totalStat = Schema()
   .prop('progress', Schema('number'))
 
 const stats = Schema()
-  .prop('activityId', firebaseRef)
-  .prop('moduleInstance', uuid)
+  .prop('activity', firebaseRef)
+  .prop('module', uuid)
+  .prop('lesson', firebaseRef)
   .prop('totals', totalStat)
-  .required(['activityId', 'moduleInstance'])
-
-const moduleRefObject = Schema()
-  .prop(/^.*$/, Course)
-  .others(false, 'invalid_keys')
+  .required(['activity', 'lesson', 'module'])
 
 const statsObject = Schema()
   .prop(/^.*$/, stats)
@@ -33,6 +34,7 @@ const statsObject = Schema()
 const Class = Schema()
   .prop('displayName', displayName)
   .prop('grade', grade)
+  .prop('assignedLesson', lesson)
   .prop('school', firebaseRef)
   .prop('owner', firebaseRef)
   .prop('modules', { ...moduleRefObject.schema, minProperties: 2 })
@@ -68,8 +70,14 @@ const addCourse = Schema()
   .required(['class', 'course'], 'missing_required_field')
   .others(false, 'invalid_fields')
 
+const assignLesson = Schema()
+  .prop('lesson', lesson)
+  .prop('class', firebaseRef)
+  .required(['lesson', 'class'])
+
 exports.default = Class
+exports.removeStudent = validate(removeStudent)
+exports.assignLesson = validate(assignLesson)
 exports.createClass = validate(createClass)
 exports.addStudent = validate(addStudent)
-exports.removeStudent = validate(removeStudent)
 exports.addCourse = validate(addCourse)

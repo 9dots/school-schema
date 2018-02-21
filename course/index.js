@@ -72,3 +72,4 @@ const Course = Schema()
   .required(['displayName', 'description', 'owner', 'imageUrl'])
 
 exports.default = Course
+exports.lesson = lesson
