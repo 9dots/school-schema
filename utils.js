@@ -57,6 +57,7 @@ const score = Schema('number')
   .max(1000)
   .min(1)
   .multiple(1.0)
+  .faker('random.number')
 
 const date = { type: 'string', format: 'date-time' }
 const lesson = Schema('string').min(0)

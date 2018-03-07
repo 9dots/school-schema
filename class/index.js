@@ -1,12 +1,12 @@
 const Schema = require('@weo-edu/schema')
 const validate = require('@weo-edu/validate')
+const mock = require('../mock')
 const { default: Course, lesson } = require('../course')
 const {
   firebaseRefObject,
   displayName,
   firebaseRef,
-  grade,
-  uuid
+  grade
 } = require('../utils')
 
 const moduleRefObject = Schema()
@@ -14,20 +14,20 @@ const moduleRefObject = Schema()
   .others(false, 'invalid_keys')
 
 const totalStat = Schema()
-  .prop('score', Schema('number'))
-  .prop('started', Schema('number'))
-  .prop('completed', Schema('number'))
-  .prop('progress', Schema('number'))
+  .prop('score', Schema('number').faker('random.number'))
+  .prop('started', Schema('number').faker('random.number'))
+  .prop('completed', Schema('number').faker('random.number'))
+  .prop('progress', Schema('number').faker('random.number'))
 
 const stats = Schema()
   .prop('activity', firebaseRef)
-  .prop('module', uuid)
+  .prop('module', firebaseRef)
   .prop('lesson', firebaseRef)
   .prop('totals', totalStat)
   .required(['activity', 'lesson', 'module'])
 
 const statsObject = Schema()
-  .prop(/^.*$/, stats)
+  .prop(/^[a-zA-Z]{6,}$/, stats.schema)
   .others(false)
 
 // XXX: Stats is a subcollection. Not sure how to document this yet.
@@ -40,6 +40,7 @@ const Class = Schema()
   .prop('modules', { ...moduleRefObject.schema, minProperties: 2 })
   .prop('teachers', firebaseRefObject)
   .prop('students', firebaseRefObject)
+  .prop('members', firebaseRefObject)
   .prop('stats', statsObject)
   .others(false)
   .required(['displayName', 'grade', 'school', 'owner'])
@@ -81,3 +82,5 @@ exports.assignLesson = validate(assignLesson)
 exports.createClass = validate(createClass)
 exports.addStudent = validate(addStudent)
 exports.addCourse = validate(addCourse)
+console.log(statsObject.schema)
+exports.stats = mock({ ...statsObject.schema, minProperties: 10 })

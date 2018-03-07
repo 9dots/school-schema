@@ -11,9 +11,9 @@ const {
 } = require('../utils')
 
 const properties = Schema()
-  .prop('studentAge', Schema('number'))
+  .prop('studentAge', Schema('number').faker('random.number'))
   .prop('studentGradeLevel', grade)
-  .prop('teacherAge', Schema('number'))
+  .prop('teacherAge', Schema('number').faker('random.number'))
   .prop('studentEthnicity', ethnicity)
   .prop('teacherEthnicity', ethnicity)
   .prop('activityType', activityType)

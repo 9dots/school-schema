@@ -5,7 +5,7 @@ const {
   displayName,
   ethnicity,
   // moduleId,
-  // lesson,
+  lesson,
   email,
   date,
   url
@@ -65,9 +65,14 @@ const setNav = Schema()
   .prop('uid', firebaseRef)
   .prop('class', firebaseRef)
 
+const assignLesson = Schema()
+  .prop('lesson', lesson)
+  .prop('url', url)
+
 exports.default = User
 exports.setCurrentSchool = validate(setCurrentSchool)
 exports.teacherSignUp = validate(teacherSignUp)
 exports.createStudent = validate(createStudent)
+exports.assignLesson = validate(assignLesson)
 exports.addToSchool = validate(addToSchool)
 exports.setNav = validate(setNav)
