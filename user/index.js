@@ -7,6 +7,7 @@ const {
   // moduleId,
   lesson,
   email,
+  uuid,
   date,
   url
 } = require('../utils')
@@ -69,7 +70,13 @@ const assignLesson = Schema()
   .prop('lesson', lesson)
   .prop('url', url)
 
+const setAssignedLessonIndex = Schema()
+  .prop('user', firebaseRef)
+  .prop('lesson', uuid)
+  .prop('current', Schema('number'))
+
 exports.default = User
+exports.setAssignedLessonIndex = validate(setAssignedLessonIndex)
 exports.setCurrentSchool = validate(setCurrentSchool)
 exports.teacherSignUp = validate(teacherSignUp)
 exports.createStudent = validate(createStudent)
