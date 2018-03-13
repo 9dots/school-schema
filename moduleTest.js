@@ -1,0 +1,139 @@
+module.exports = {
+  displayName: 'niches Business-focused P',
+  description:
+    'Sed sapiente ut eveniet atque eligendi esse distinctio. Autem non nulla. Numquam incidunt vitae. Sapiente aliquid et et. Consectetur dolorem voluptate voluptates.',
+  owner: 'i8Gf669jrfPK15dV',
+  duration: { time: 84903, unit: 'hours' },
+  lessons: [
+    {
+      displayName: 'Texas Springs',
+      description:
+        'Quas qui dolorem sequi et voluptate nihil cumque dicta. Eum et quos. Nihil ex sit. Reprehenderit ducimus aut maxime at iste. Eos ipsum error dolore dolorum rerum labore. Et ut vel blanditiis dolor vel',
+      tasks: [
+        {
+          displayName: 'maroon Tonga',
+          url: 'https://www.pixelbots.io/playlist/-KrCUmYpkDaz8TWhaDSp/view',
+          type: 'test',
+          id: 'ddf2ff8f-6fe1-4719-a5de-244f4597b571',
+          index: 0
+        },
+        {
+          displayName: 'black Tasty Granite Chick',
+          url: 'https://player.vimeo.com/video/36579366',
+          type: 'write',
+          id: '3ddae991-4cab-4df1-9109-8884ccf1924f',
+          index: 1
+        }
+      ],
+      id: 'ba8c05e5-0941-496b-8ad3-b74737e55977',
+      index: 55931,
+      tags: { vbHJUOpbpZqq: true }
+    },
+    {
+      displayName: 'Belgium calculate',
+      description:
+        'Enim eligendi culpa. Illo dolores excepturi sunt commodi dolores qui natus et. Consequatur dolor doloribus earum. Dolores nulla voluptatem.',
+      tasks: [
+        {
+          displayName: 'Minnesota target',
+          url: 'https://genoveva.info',
+          type: 'watch',
+          id: '1c868ca0-565c-440a-b57c-fdf63a0ec7db',
+          index: 51341
+        },
+        {
+          displayName: 'Gourde US Dollar delivera',
+          url: 'http://susie.biz',
+          type: 'watch',
+          id: '5f20a7d6-1b93-43fd-bfc5-ad957a63b8ad',
+          index: 59507
+        },
+        {
+          displayName: 'Singapore Licensed',
+          url: 'http://adonis.org',
+          type: 'write',
+          id: 'db0b7c61-8db0-47d0-a5b9-ba5479a5f7a5',
+          index: 1485
+        },
+        {
+          displayName: 'Bike',
+          url: 'https://marcel.com',
+          type: 'write',
+          id: '21b24596-5971-4ddd-b48f-0a943747d750',
+          index: 50408
+        }
+      ],
+      id: '2da75e1e-b22c-4214-8535-72a562280de5',
+      index: 35753,
+      tags: { km: true }
+    },
+    {
+      displayName: 'Direct Music',
+      description:
+        'Eius ea accusantium voluptatem maxime illum laudantium. Minus similique et deleniti.',
+      tasks: [
+        {
+          displayName: 'leverage task-force',
+          url: 'http://arvid.com',
+          type: 'listen',
+          id: 'eef70441-6153-4876-b9e1-9d949a06a7e0',
+          index: 62184
+        },
+        {
+          displayName: 'Avon Internal',
+          url: 'http://rosie.name',
+          type: 'write',
+          id: '147cda85-a196-41a4-8f2c-3115b594c7fb',
+          index: 2778
+        },
+        {
+          displayName: 'networks Switchable',
+          url: 'http://caroline.com',
+          type: 'write',
+          id: '6c6a59c7-7178-4831-80fd-a4cf0ba21534',
+          index: 7309
+        }
+      ],
+      id: 'b18e1b9a-9d1e-4617-bfd7-df2abff0a64d',
+      index: 32956,
+      tags: { OHONhPa: false }
+    },
+    {
+      displayName: 'Consultant Intelligent Wo',
+      description:
+        'Omnis et et voluptatem et voluptas. Omnis quidem corporis illo.',
+      tasks: [
+        {
+          displayName: 'zero administration',
+          url: 'http://gilbert.org',
+          type: 'write',
+          id: 'f64c7691-ae92-4207-9633-fe71e9bc4724',
+          index: 31528
+        },
+        {
+          displayName: 'Small Car',
+          url: 'https://hallie.org',
+          type: 'test',
+          id: 'f469d6ff-4060-4398-bd88-4312c2e5f141',
+          index: 23734
+        },
+        {
+          displayName: 'revolutionary',
+          url: 'https://haskell.name',
+          type: 'listen',
+          id: '9487dd22-d2b0-4ee1-8fbc-d2cd4d2b2643',
+          index: 47465
+        }
+      ],
+      id: 'd24f1ea7-885a-4cff-a133-8185a3afa59a',
+      index: 22790,
+      tags: { LUIkYwyt: false }
+    }
+  ],
+  tags: { EZkbnGB: true },
+  imageUrl: 'http://lorempixel.com/640/480',
+  difficulty: 'B',
+  published: true,
+  featured: false,
+  assigns: 69975552
+}

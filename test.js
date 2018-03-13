@@ -5,7 +5,7 @@ const mod = require('./moduleTest')
 // const { stats } = require('./class')
 const fs = require('fs')
 
-upload('modules', mod)
+upload('courses', mod)
 
 // mock.module.then(data =>
 //   fs.writeFileSync('module.js', `module.exports = ${JSON.stringify(data)}`)

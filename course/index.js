@@ -11,7 +11,7 @@ const {
 
 // add description
 
-const activity = Schema()
+const task = Schema()
   .prop('displayName', displayName)
   .prop('url', url)
   .prop('type', activityType)
@@ -23,7 +23,7 @@ const activity = Schema()
       .faker('random.number')
   )
   .required(['displayName', 'url', 'type', 'index'])
-const activities = Schema('array').items(activity.schema)
+const tasks = Schema('array').items(task.schema)
 
 const duration = Schema()
   .prop(
@@ -39,7 +39,7 @@ const duration = Schema()
 const lesson = Schema()
   .prop('displayName', displayName)
   .prop('description', description)
-  .prop('tasks', activities)
+  .prop('tasks', tasks)
   .prop('id', Schema('string').faker('random.uuid'))
   .prop(
     'index',

@@ -2,7 +2,7 @@ const mock = require('./mock')
 const map = require('@f/map')
 
 const schemas = {
-  activities: require('./activities'),
+  activity: require('./activities'),
   module: require('./module'),
   course: require('./course'),
   school: require('./school'),
