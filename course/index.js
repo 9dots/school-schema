@@ -1,3 +1,4 @@
+const validate = require('@weo-edu/validate')
 const Schema = require('@weo-edu/schema')
 const {
   displayName,
@@ -71,5 +72,14 @@ const Course = Schema()
   )
   .required(['displayName', 'description', 'owner', 'imageUrl'])
 
+const createCourse = Schema()
+  .prop('displayName', displayName)
+  .prop('description', description)
+  .prop('duration', duration)
+  .prop('tags', lessonTags)
+  .prop('difficulty', Schema('string').enum(['A', 'B', 'C', 'D', 'E']))
+  .required(['displayName', 'description', 'difficult'])
+
 exports.default = Course
+exports.createCourse = validate(createCourse)
 exports.lesson = lesson
