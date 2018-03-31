@@ -72,7 +72,7 @@ const Course = Schema()
   )
   .required(['displayName', 'description', 'owner', 'imageUrl'])
 
-const createCourse = Schema()
+const create = Schema()
   .prop('displayName', displayName)
   .prop('description', description)
   .prop('duration', duration)
@@ -81,5 +81,5 @@ const createCourse = Schema()
   .required(['displayName', 'description', 'difficult'])
 
 exports.default = Course
-exports.createCourse = validate(createCourse)
+exports.create = validate(create)
 exports.lesson = lesson
