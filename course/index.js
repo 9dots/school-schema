@@ -7,6 +7,7 @@ const {
   activityType,
   lessonTags,
   imageUrl,
+  uuid,
   url
 } = require('../utils')
 
@@ -40,6 +41,8 @@ const duration = Schema()
 const lesson = Schema()
   .prop('displayName', displayName)
   .prop('description', description)
+  .prop('slides', url)
+  .prop('lessonPlan', url)
   .prop('tasks', tasks)
   .prop('id', Schema('string').faker('random.uuid'))
   .prop(
@@ -78,8 +81,62 @@ const create = Schema()
   .prop('duration', duration)
   .prop('tags', lessonTags)
   .prop('difficulty', Schema('string').enum(['A', 'B', 'C', 'D', 'E']))
-  .required(['displayName', 'description', 'difficult'])
+  .required(['displayName', 'description'])
+
+const addLesson = Schema()
+  .prop('displayName', displayName)
+  .prop('description', description)
+  .prop('course', firebaseRef)
+  .prop('slides', url)
+  .prop('lessonPlan', url)
+  .required(['displayName', 'course', 'description', 'slides', 'lessonPlan'])
+  .others(false, 'invalid_keys')
+
+const removeLesson = Schema()
+  .prop('course', firebaseRef)
+  .prop('lesson', uuid)
+  .required(['lesson', 'course'])
+  .others(false, 'invalid_keys')
+
+const updateLesson = Schema()
+  .prop('course', firebaseRef)
+  .prop('lesson', uuid)
+  .prop('displayName', displayName)
+  .prop('description', description)
+  .prop('course', firebaseRef)
+  .prop('slides', url)
+  .prop('lessonPlan', url)
+  .required(['lesson', 'course'])
+
+const addTask = Schema()
+  .prop('course', firebaseRef)
+  .prop('lesson', uuid)
+  .prop('url', url)
+  .required(['url', 'course', 'lesson'])
+  .others(false, 'invalid_keys')
+
+const removeTask = Schema()
+  .prop('course', firebaseRef)
+  .prop('lesson', uuid)
+  .prop('task', uuid)
+  .required(['task', 'course', 'lesson'])
+  .others(false, 'invalid_keys')
+
+const updateTask = Schema()
+  .prop('course', firebaseRef)
+  .prop('lesson', uuid)
+  .prop('task', url)
+  .prop('displayName', displayName)
+  .prop('type', activityType)
+  .required(['task', 'course', 'lesson'])
+  .others(false, 'invalid_keys')
 
 exports.default = Course
-exports.create = validate(create)
 exports.lesson = lesson
+exports.create = validate(create)
+exports.addLesson = validate(addLesson)
+exports.removeLesson = validate(removeLesson)
+exports.updateLesson = validate(updateLesson)
+exports.addTask = validate(addTask)
+exports.removeTask = validate(removeTask)
+exports.updateTask = validate(updateTask)
