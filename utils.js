@@ -38,11 +38,13 @@ const progress = Schema('number')
   .max(100)
 
 const activityType = Schema('string').enum([
-  'link',
+  'assignment',
   'listen',
+  'survey',
   'write',
   'video',
-  'assignment',
+  'link',
+  'read',
   'test'
 ])
 

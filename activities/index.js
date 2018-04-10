@@ -9,6 +9,7 @@ const {
   progress,
   score,
   grade,
+  uuid,
   url
 } = require('../utils')
 
@@ -100,7 +101,14 @@ const setActive = Schema()
   .prop('activity', firebaseRef)
   .required(['lesson', 'activity'])
 
+const externalUpdate = Schema()
+  .prop('completed', Schema('boolean'))
+  .prop('progress', progress)
+  .prop('score', score)
+  .prop('id', uuid)
+
 // TODO: better name for module instance
 exports.default = activities
+exports.externalUpdate = validate(externalUpdate)
 exports.setActive = validate(setActive)
 exports.add = validate(add)
