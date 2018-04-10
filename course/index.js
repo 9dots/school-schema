@@ -81,7 +81,7 @@ const create = Schema()
   .prop('duration', duration)
   .prop('tags', lessonTags)
   .prop('difficulty', Schema('string').enum(['A', 'B', 'C', 'D', 'E']))
-  .required(['displayName', 'description'])
+  .required(['displayName', 'description', 'difficulty', 'duration'])
 
 const addLesson = Schema()
   .prop('displayName', displayName)
