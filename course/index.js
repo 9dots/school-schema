@@ -86,7 +86,14 @@ const create = Schema()
   .prop('duration', duration)
   .prop('tags', lessonTags)
   .prop('grade', grade)
-  .required(['displayName', 'description', 'duration'])
+  .required([
+    'displayName',
+    'difficulty',
+    'description',
+    'duration',
+    'grade',
+    'tags'
+  ])
 
 const addLesson = Schema()
   .prop('displayName', displayName)
@@ -139,6 +146,7 @@ const updateTask = Schema()
 exports.default = Course
 exports.lesson = lesson
 exports.create = validate(create)
+exports.update = validate(create)
 exports.addLesson = validate(addLesson)
 exports.removeLesson = validate(removeLesson)
 exports.updateLesson = validate(updateLesson)
