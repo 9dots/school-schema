@@ -7,6 +7,7 @@ const {
   activityType,
   lessonTags,
   imageUrl,
+  grade,
   uuid,
   url
 } = require('../utils')
@@ -35,7 +36,10 @@ const duration = Schema()
       .max(60)
       .faker('random.number')
   )
-  .prop('unit', Schema('string').enum(['minutes', 'hours', 'days']))
+  .prop(
+    'unit',
+    Schema('string').enum(['minutes', 'hours', 'days', 'weeks', 'months'])
+  )
   .required(['time', 'unit'])
 
 const lesson = Schema()
@@ -76,12 +80,13 @@ const Course = Schema()
   .required(['displayName', 'description', 'owner', 'imageUrl'])
 
 const create = Schema()
+  .prop('difficulty', Schema('string').enum(['A', 'B', 'C', 'D', 'E']))
   .prop('displayName', displayName)
   .prop('description', description)
   .prop('duration', duration)
   .prop('tags', lessonTags)
-  .prop('difficulty', Schema('string').enum(['A', 'B', 'C', 'D', 'E']))
-  .required(['displayName', 'description', 'difficulty', 'duration'])
+  .prop('grade', grade)
+  .required(['displayName', 'description', 'duration'])
 
 const addLesson = Schema()
   .prop('displayName', displayName)

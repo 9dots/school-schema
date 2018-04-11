@@ -66,7 +66,7 @@ const date = { type: 'string', format: 'date-time' }
 const lesson = Schema('string').min(0)
 const uuid = Schema('string').min(10)
 const grade = Schema('string').enum([
-  'k',
+  'K',
   '1',
   '2',
   '3',
