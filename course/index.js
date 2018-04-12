@@ -118,6 +118,7 @@ const updateLesson = Schema()
   .prop('course', firebaseRef)
   .prop('slides', url)
   .prop('lessonPlan', url)
+  .prop('tasks', tasks)
   .required(['lesson', 'course'])
 
 const addTask = Schema()
@@ -143,6 +144,10 @@ const updateTask = Schema()
   .required(['task', 'course', 'lesson'])
   .others(false, 'invalid_keys')
 
+const reorder = Schema()
+  .prop('course', firebaseRef)
+  .required(['course'])
+
 exports.default = Course
 exports.lesson = lesson
 exports.create = validate(create)
@@ -153,3 +158,4 @@ exports.updateLesson = validate(updateLesson)
 exports.addTask = validate(addTask)
 exports.removeTask = validate(removeTask)
 exports.updateTask = validate(updateTask)
+exports.reorder = validate(reorder)
