@@ -1,10 +1,11 @@
 const validate = require('@weo-edu/validate')
 const Schema = require('@weo-edu/schema')
 const {
+  activityType,
   displayName,
   description,
   firebaseRef,
-  activityType,
+  uuidObject,
   lessonTags,
   imageUrl,
   grade,
@@ -84,7 +85,7 @@ const create = Schema()
   .prop('displayName', displayName)
   .prop('description', description)
   .prop('duration', duration)
-  .prop('tags', lessonTags)
+  .prop('tags', uuidObject)
   .prop('grade', grade)
   .required([
     'displayName',

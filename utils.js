@@ -16,6 +16,12 @@ const firebaseRefObject = Schema()
   .prop(/^[a-zA-Z]{2,}$/, { type: 'boolean' })
   .others(false, 'invalid_keys')
 
+const uuidObject = Schema()
+  .prop(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/, {
+    type: 'boolean'
+  })
+  .prop('others', false)
+
 const firebaseRef = Schema('string')
   // .min(6, 'invalid_firebase_ref')
   .pattern(/[a-zA-Z0-9]{6,}$/, 'invalid_firebase_ref')
@@ -89,6 +95,7 @@ module.exports = {
   firebaseRef,
   displayName,
   description,
+  uuidObject,
   ethnicity,
   imageUrl,
   progress,
