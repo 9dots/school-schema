@@ -6,7 +6,8 @@ const {
   firebaseRefObject,
   displayName,
   firebaseRef,
-  grade
+  grade,
+  uuid
 } = require('../utils')
 
 const moduleRefObject = Schema()
@@ -72,8 +73,9 @@ const addCourse = Schema()
   .others(false, 'invalid_fields')
 
 const assignLesson = Schema()
-  .prop('lesson', lesson)
+  .prop('lesson', uuid)
   .prop('class', firebaseRef)
+  .prop('module', firebaseRef)
   .required(['lesson', 'class'])
 
 exports.default = Class
