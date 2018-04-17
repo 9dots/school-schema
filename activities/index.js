@@ -107,8 +107,13 @@ const externalUpdate = Schema()
   .prop('score', score)
   .prop('id', uuid)
 
+const maybeSetCompleted = Schema()
+  .prop('activity', firebaseRef)
+  .required(['activity'])
+
 // TODO: better name for module instance
 exports.default = activities
+exports.maybeSetCompleted = validate(maybeSetCompleted)
 exports.externalUpdate = validate(externalUpdate)
 exports.setActive = validate(setActive)
 exports.add = validate(add)

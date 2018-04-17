@@ -30,7 +30,7 @@ const email = Schema('string').format('email', 'Invalid email address')
 
 const displayName = Schema('string')
   .min(2, 'displayName_too_short')
-  .max(25, 'displayName_too_long')
+  .max(40, 'displayName_too_long')
   .faker('random.words')
 
 const description = Schema('string')
