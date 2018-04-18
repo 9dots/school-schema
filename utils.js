@@ -71,9 +71,25 @@ const score = Schema('number')
 const date = { type: 'string', format: 'date-time' }
 const lesson = Schema('string').min(0)
 const uuid = Schema('string').min(10)
-const grade = Schema()
+const gradeMap = Schema()
   .prop(/^[0-9]{1,2}$/, { type: 'boolean' })
   .others(false)
+const grade = Schema('string').enum([
+  '0',
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13'
+])
 
 module.exports = {
   lessonTags: { ...firebaseRefObject.schema, minProperties: 1 },
@@ -85,6 +101,7 @@ module.exports = {
   uuidObject,
   ethnicity,
   imageUrl,
+  gradeMap,
   progress,
   lesson,
   score,

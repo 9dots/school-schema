@@ -8,7 +8,7 @@ const {
   uuidObject,
   lessonTags,
   imageUrl,
-  grade,
+  gradeMap,
   uuid,
   url
 } = require('../utils')
@@ -85,14 +85,8 @@ const create = Schema()
   .prop('description', description)
   .prop('duration', duration)
   .prop('tags', uuidObject)
-  .prop('grade', grade)
-  .required([
-    'displayName',
-    'description',
-    'duration',
-    'grade',
-    'tags'
-  ])
+  .prop('grade', gradeMap)
+  .required(['displayName', 'description', 'duration', 'grade', 'tags'])
 
 const addLesson = Schema()
   .prop('displayName', displayName)
