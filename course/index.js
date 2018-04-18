@@ -81,7 +81,6 @@ const Course = Schema()
   .required(['displayName', 'description', 'owner', 'imageUrl'])
 
 const create = Schema()
-  .prop('difficulty', Schema('string').enum(['a', 'b', 'c', 'd', 'e']))
   .prop('displayName', displayName)
   .prop('description', description)
   .prop('duration', duration)
@@ -89,7 +88,6 @@ const create = Schema()
   .prop('grade', grade)
   .required([
     'displayName',
-    'difficulty',
     'description',
     'duration',
     'grade',
