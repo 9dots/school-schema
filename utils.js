@@ -88,7 +88,8 @@ const grade = Schema('string').enum([
   '10',
   '11',
   '12',
-  '13'
+  '13',
+  '14'
 ])
 
 module.exports = {
