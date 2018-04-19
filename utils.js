@@ -74,22 +74,22 @@ const uuid = Schema('string').min(10)
 const gradeMap = Schema()
   .prop(/^[0-9]{1,2}$/, { type: 'boolean' })
   .others(false)
-const grade = Schema('string').enum([
-  '0',
-  '1',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  '10',
-  '11',
-  '12',
-  '13',
-  '14'
+const grade = Schema('number').enum([
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14
 ])
 
 module.exports = {
