@@ -369,9 +369,9 @@
   version "8.9.3"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.9.3.tgz#47d00392c5834dd5a095346d72df7ff8995f7365"
 
-"@weo-edu/schema@^0.1.11":
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/@weo-edu/schema/-/schema-0.1.11.tgz#19f1ddb8d33237d1e57781db4fe3380452af3f02"
+"@weo-edu/schema@https://github.com/danleavitt0/schema.git":
+  version "0.1.10"
+  resolved "https://github.com/danleavitt0/schema.git#e873030634f916f9ae0639eaccaf1bcda65c15bd"
   dependencies:
     "@f/clone-shallow" "^1.1.3"
     component-inherit "0.0.3"
