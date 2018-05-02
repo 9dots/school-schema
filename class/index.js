@@ -38,7 +38,10 @@ const Class = Schema()
   .prop('assignedLesson', lesson)
   .prop('school', firebaseRef)
   .prop('owner', firebaseRef)
-  .prop('modules', { ...moduleRefObject.schema, minProperties: 2 })
+  .prop(
+    'modules',
+    Object.assign({}, moduleRefObject.schema, { minProperties: 2 })
+  )
   .prop('teachers', firebaseRefObject)
   .prop('students', firebaseRefObject)
   .prop('members', firebaseRefObject)

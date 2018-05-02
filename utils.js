@@ -93,7 +93,7 @@ const grade = Schema('number').enum([
 ])
 
 module.exports = {
-  lessonTags: { ...firebaseRefObject.schema, minProperties: 1 },
+  lessonTags: Object.assign({}, firebaseRefObject.schema, { minProperties: 1 }),
   firebaseRefObject,
   activityType,
   firebaseRef,
