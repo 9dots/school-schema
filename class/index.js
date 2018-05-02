@@ -79,6 +79,17 @@ const removeStudent = Schema()
   .others(false, 'invalid_fields')
   .required(['class', 'student'], 'missing_required_field')
 
+const removeStudents = Schema()
+  .prop('class', firebaseRef)
+  .prop(
+    'students',
+    Schema('array')
+      .items(firebaseRef.schema)
+      .min(1)
+  )
+  .others(false, 'invalid_fields')
+  .required(['class', 'students'], 'missing_required_field')
+
 const addCourse = Schema()
   .prop('class', firebaseRef)
   .prop('course', firebaseRef)
@@ -92,6 +103,7 @@ const assignLesson = Schema()
   .required(['lesson', 'class'])
 
 exports.default = Class
+exports.removeStudents = validate(removeStudents)
 exports.removeStudent = validate(removeStudent)
 exports.removeTeacher = validate(removeTeacher)
 exports.assignLesson = validate(assignLesson)
