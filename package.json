@@ -19,7 +19,7 @@
   "dependencies": {
     "@f/map": "^1.5.3",
     "@weo-edu/schema": "https://github.com/danleavitt0/schema.git",
-    "@weo-edu/validate": "^2.12.7",
+    "@weo-edu/validate": "https://github.com/danleavitt0/validate.git",
     "faker": "^4.1.0",
     "firebase-admin": "^5.8.2",
     "json-schema-faker": "^0.5.0-rc12"
