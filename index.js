@@ -12,5 +12,5 @@ const schemas = {
 
 const mocks = map((val, key) => mock(val.default.schema), schemas)
 
-exports = schemas
-exports.mock = mocks
+module.exports = schemas
+schemas.mock = mock
