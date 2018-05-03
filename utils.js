@@ -29,6 +29,7 @@ const firebaseRef = Schema('string')
 const email = Schema('string').format('email', 'Invalid email address')
 
 const displayName = Schema('string')
+  .pattern(/^[a-zA-Z]$/, 'illegal_characters')
   .min(2, 'displayName_too_short')
   .max(40, 'displayName_too_long')
   .faker('random.words')

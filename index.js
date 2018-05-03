@@ -10,5 +10,7 @@ const schemas = {
   user: require('./user')
 }
 
-exports.default = schemas
-exports.mock = map((val, key) => mock(val.default.schema), schemas)
+const mocks = map((val, key) => mock(val.default.schema), schemas)
+
+exports = schemas
+exports.mock = mocks
