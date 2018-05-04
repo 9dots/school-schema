@@ -107,7 +107,13 @@ const assignLesson = Schema()
   .prop("module", firebaseRef)
   .required(["lesson", "class"]);
 
+const setPasswordType = Schema()
+  .prop("class", firebaseRef)
+  .prop("passwordType", passwordType)
+  .required(["class", "passwordType"]);
+
 exports.default = Class;
+exports.setPasswordType = validate(setPasswordType);
 exports.removeStudents = validate(removeStudents);
 exports.removeStudent = validate(removeStudent);
 exports.removeTeacher = validate(removeTeacher);
