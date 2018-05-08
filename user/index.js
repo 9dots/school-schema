@@ -4,18 +4,13 @@ const {
   firebaseRef,
   displayName,
   ethnicity,
-  // moduleId,
+  password,
   lesson,
   email,
   uuid,
   date,
   url
 } = require('../utils')
-
-// const assignedLesson = Schema()
-//   .prop('class', firebaseRef)
-//   .prop('module', moduleId)
-//   .prop('lesson', lesson)
 
 const name = Schema()
   .prop('given', displayName)
@@ -75,8 +70,15 @@ const setAssignedLessonIndex = Schema()
   .prop('lesson', uuid)
   .prop('current', Schema('number'))
 
+const signInWithPassword = Schema()
+  .prop('user', firebaseRef)
+  .prop('password', password)
+  .prop('type', Schema('string').enum(['text', 'image']))
+  .required(['user', 'password', 'type'])
+
 exports.default = User
 exports.setAssignedLessonIndex = validate(setAssignedLessonIndex)
+exports.signInWithPassword = validate(signInWithPassword)
 exports.setCurrentSchool = validate(setCurrentSchool)
 exports.teacherSignUp = validate(teacherSignUp)
 exports.createStudent = validate(createStudent)

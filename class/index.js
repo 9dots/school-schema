@@ -1,7 +1,6 @@
-const Schema = require('@weo-edu/schema')
-const validate = require('@weo-edu/validate')
-const mock = require('../mock')
 const { default: Course, lesson } = require('../course')
+const validate = require('@weo-edu/validate')
+const Schema = require('@weo-edu/schema')
 const {
   firebaseRefObject,
   passwordType,
