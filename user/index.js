@@ -1,6 +1,7 @@
 const Schema = require('@weo-edu/schema')
 const validate = require('@weo-edu/validate')
 const {
+  firebaseRefObject,
   passwordType,
   firebaseRef,
   displayName,
@@ -64,7 +65,10 @@ const setNav = Schema()
 
 const assignLesson = Schema()
   .prop('lesson', lesson)
-  .prop('url', url)
+  .prop('class', firebaseRef)
+  .prop('teachers', firebaseRefObject)
+  .prop('module', firebaseRef)
+  .required(['lesson', 'class', 'teachers', 'module'])
 
 const setAssignedLessonIndex = Schema()
   .prop('user', firebaseRef)
