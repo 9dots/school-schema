@@ -1,6 +1,7 @@
 const Schema = require('@weo-edu/schema')
 const validate = require('@weo-edu/validate')
 const {
+  passwordType,
   firebaseRef,
   displayName,
   ethnicity,
@@ -73,11 +74,18 @@ const setAssignedLessonIndex = Schema()
 const signInWithPassword = Schema()
   .prop('user', firebaseRef)
   .prop('password', password)
-  .prop('type', Schema('string').enum(['text', 'image']))
+  .prop('type', passwordType)
   .required(['user', 'password', 'type'])
+
+const setInsecurePassword = Schema()
+  .prop('user', firebaseRef)
+  .prop('type', passwordType)
+  .prop('password', password)
+  .required(['user', 'type'])
 
 exports.default = User
 exports.setAssignedLessonIndex = validate(setAssignedLessonIndex)
+exports.setInsecurePassword = validate(setInsecurePassword)
 exports.signInWithPassword = validate(signInWithPassword)
 exports.setCurrentSchool = validate(setCurrentSchool)
 exports.teacherSignUp = validate(teacherSignUp)
