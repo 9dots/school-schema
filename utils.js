@@ -13,7 +13,7 @@ const imageUrl = {
 }
 
 const firebaseRefObject = Schema()
-  .prop(/^[a-zA-Z]{2,}$/, { type: 'boolean' })
+  .prop(/^[a-zA-Z0-9]{6,}$/, { type: 'boolean' })
   .others(false, 'invalid_keys')
 
 const uuidObject = Schema()

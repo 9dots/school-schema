@@ -64,7 +64,7 @@ const setNav = Schema()
   .prop('class', firebaseRef)
 
 const assignLesson = Schema()
-  .prop('lesson', lesson)
+  .prop('lesson', uuid)
   .prop('class', firebaseRef)
   .prop('teachers', firebaseRefObject)
   .prop('module', firebaseRef)
