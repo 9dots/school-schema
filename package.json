@@ -2,8 +2,9 @@
   "name": "school-schema",
   "version": "0.1.47",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "preversion": "babel src --out-dir lib",
     "postversion": "git push && git push --tags && npm publish --access=public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,8 +27,9 @@
     "json-schema-faker": "^0.5.0-rc12"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^8.0.2",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^4.7.2",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-flowtype": "^2.37.0",
