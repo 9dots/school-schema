@@ -1,5 +1,5 @@
-const mock = require('./mock')
-const map = require('@f/map')
+// const mock = require('./mock')
+// const map = require('@f/map')
 
 const schemas = {
   activity: require('./activities'),
@@ -10,8 +10,8 @@ const schemas = {
   user: require('./user')
 }
 
-const mocks = map((val, key) => mock(val.default.schema), schemas)
+// const mocks = map((val, key) => mock(val.default.schema), schemas)
 
 module.exports = schemas
-schemas.mock = mocks
+// schemas.mock = mocks
 schemas.picturePasswords = require('./picturePasswords')
