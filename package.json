@@ -20,8 +20,8 @@
   "homepage": "https://github.com/9dots/school-schema#readme",
   "dependencies": {
     "@f/map": "^1.5.3",
-    "@weo-edu/schema": "https://github.com/danleavitt0/schema.git",
-    "@weo-edu/validate": "https://github.com/danleavitt0/validate.git",
+    "@weo-edu/schema": "https://github.com/danleavitt0/schema.git#e873030634f916f9ae0639eaccaf1bcda65c15bd",
+    "@weo-edu/validate": "https://github.com/danleavitt0/validate.git#80e274cfb7fb428c2a14f9114275a540081474e6",
     "faker": "^4.1.0",
     "firebase-admin": "^5.8.2"
   },
