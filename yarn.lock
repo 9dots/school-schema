@@ -369,7 +369,7 @@
   version "8.9.3"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.9.3.tgz#47d00392c5834dd5a095346d72df7ff8995f7365"
 
-"@weo-edu/schema@https://github.com/danleavitt0/schema.git":
+"@weo-edu/schema@https://github.com/danleavitt0/schema.git#e873030634f916f9ae0639eaccaf1bcda65c15bd":
   version "0.1.10"
   resolved "https://github.com/danleavitt0/schema.git#e873030634f916f9ae0639eaccaf1bcda65c15bd"
   dependencies:
@@ -379,13 +379,13 @@
     object-assign "^3.0.0"
     sliced "0.0.5"
 
-"@weo-edu/validate@https://github.com/danleavitt0/validate.git":
+"@weo-edu/validate@https://github.com/danleavitt0/validate.git#80e274cfb7fb428c2a14f9114275a540081474e6":
   version "2.12.5"
-  resolved "https://github.com/danleavitt0/validate.git#45dea767fee8d97a67a7d284c2c4642d98ebd599"
+  resolved "https://github.com/danleavitt0/validate.git#80e274cfb7fb428c2a14f9114275a540081474e6"
   dependencies:
     generate-function "^2.0.0"
     generate-object-property "^1.1.0"
-    jsonpointer "^1.1.0"
+    jsonpointer "^4.0.1"
     standard "^3.11.0"
     string-template "^0.2.1"
     xtend "^4.0.0"
@@ -3216,9 +3216,9 @@ jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
 
-jsonpointer@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/jsonpointer/-/jsonpointer-1.1.0.tgz#c3c72efaed3b97154163dc01dd349e1cfe0f80fc"
+jsonpointer@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/jsonpointer/-/jsonpointer-4.0.1.tgz#4fd92cb34e0e9db3c89c8622ecf51f9b978c6cb9"
 
 jsonwebtoken@8.1.0:
   version "8.1.0"
