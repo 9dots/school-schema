@@ -1,13 +1,14 @@
 const Schema = require('@weo-edu/schema')
 const validate = require('@weo-edu/validate')
 const {
+  lowerCaseUsername,
   firebaseRefObject,
   passwordType,
   firebaseRef,
   displayName,
   ethnicity,
   password,
-  lesson,
+  username,
   email,
   uuid,
   date,
@@ -48,6 +49,14 @@ const createStudent = Schema()
   .prop('email', email)
   .prop('name', name)
   .required(['studentId', 'name', 'school'], 'missing_required_field')
+
+const editUser = Schema()
+  .prop('studentId', firebaseRef)
+  .prop('username', username)
+  .prop('id', firebaseRef)
+  .prop('name', name)
+  .required(['id', 'name', 'username'], 'missing_required_field')
+  .others(false)
 
 const createStudents = Schema('array').items(createStudent.schema)
 
@@ -99,4 +108,5 @@ exports.teacherSignUp = validate(teacherSignUp)
 exports.createStudent = validate(createStudent)
 exports.assignLesson = validate(assignLesson)
 exports.addToSchool = validate(addToSchool)
+exports.editUser = validate(editUser)
 exports.setNav = validate(setNav)

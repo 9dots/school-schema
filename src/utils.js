@@ -28,6 +28,12 @@ const firebaseRef = Schema('string')
 
 const email = Schema('string').format('email', 'Invalid email address')
 
+const username = Schema('string').pattern(/^[a-zA-Z0-9]+$/, 'invalid_username')
+const lowerCaseUsername = Schema('string').pattern(
+  /^[a-z0-9]+$/,
+  'invalid_username'
+)
+
 const displayName = Schema('string')
   .min(2, 'displayName_too_short')
   .max(40, 'displayName_too_long')
@@ -99,6 +105,7 @@ const password = Schema('string')
 
 module.exports = {
   lessonTags: Object.assign({}, firebaseRefObject.schema, { minProperties: 1 }),
+  lowerCaseUsername,
   firebaseRefObject,
   passwordType,
   activityType,
@@ -107,6 +114,7 @@ module.exports = {
   description,
   uuidObject,
   ethnicity,
+  username,
   imageUrl,
   gradeMap,
   progress,
