@@ -1,7 +1,6 @@
 const Schema = require('@weo-edu/schema')
 const validate = require('@weo-edu/validate')
 const {
-  lowerCaseUsername,
   firebaseRefObject,
   passwordType,
   firebaseRef,
