@@ -18,7 +18,7 @@ const {
 const task = Schema()
   .prop('displayName', displayName)
   .prop('url', url)
-  .prop('keyTask', Schema('number').enum([0, 1, 2, 3, 4]))
+  .prop('keyTask', Schema('number').enum([0, 1, 2, 3, 4, 5]))
   .prop('type', activityType)
   .prop('id', Schema('string').faker('random.uuid'))
   .prop(
@@ -27,7 +27,7 @@ const task = Schema()
       .multiple(1.0)
       .faker('random.number')
   )
-  .required(['displayName', 'url', 'type', 'index'])
+  .required(['url', 'type', 'index'])
 const tasks = Schema('array').items(task.schema)
 
 const duration = Schema()
