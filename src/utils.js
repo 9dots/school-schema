@@ -49,14 +49,12 @@ const progress = Schema('number')
   .max(100)
 
 const activityType = Schema('string').enum([
-  'assignment',
-  'listen',
-  'survey',
-  'write',
-  'video',
-  'link',
-  'read',
-  'test'
+  'review',
+  'practice',
+  'extension',
+  'project',
+  'quiz',
+  'media'
 ])
 
 const ethnicity = Schema('string').enum([
