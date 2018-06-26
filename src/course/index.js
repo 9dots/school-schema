@@ -130,6 +130,7 @@ const addTask = Schema()
   .prop('draft', firebaseRef)
   .prop('lesson', uuid)
   .prop('url', url)
+  .prop('access_token')
   .required(['url', 'course', 'lesson', 'draft'])
   .others(false, 'invalid_keys')
 
