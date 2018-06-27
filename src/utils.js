@@ -40,7 +40,7 @@ const displayName = Schema('string')
 
 const description = Schema('string')
   .min(1)
-  .max(200)
+  .max(250, 'description_too_long')
   .faker('lorem.sentences')
 
 const progress = Schema('number')
