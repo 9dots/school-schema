@@ -46,7 +46,7 @@ const createStudent = Schema()
   .prop('school', firebaseRef)
   .prop('email', email)
   .prop('name', name)
-  .required(['name', 'school'], 'missing_required_field')
+  .required(['name', 'school', 'email'], 'missing_required_field')
 
 const editUser = Schema()
   .prop('username', username)
