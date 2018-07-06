@@ -7,6 +7,7 @@ const schemas = {
   course: require('./course'),
   school: require('./school'),
   class: require('./class'),
+  auth: require('./auth'),
   user: require('./user')
 }
 
