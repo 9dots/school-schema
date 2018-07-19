@@ -8,6 +8,7 @@ const {
   ethnicity,
   password,
   username,
+  grade,
   email,
   uuid,
   date,
@@ -44,6 +45,7 @@ const teacherSignUp = Schema()
 
 const createStudent = Schema()
   .prop('school', firebaseRef)
+  .prop('grade', grade)
   .prop('email', email)
   .prop('name', name)
   .required(['name', 'school', 'email'], 'missing_required_field')

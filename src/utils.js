@@ -53,6 +53,7 @@ const activityType = Schema('string').enum([
   'practice',
   'extension',
   'project',
+  'bonus',
   'quiz',
   'media'
 ])
