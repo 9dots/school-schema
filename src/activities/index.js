@@ -65,8 +65,7 @@ const activity = Schema()
     'lesson',
     'class',
     'task',
-    'url',
-    'displayName'
+    'url'
   ])
 
 const add = Schema()
