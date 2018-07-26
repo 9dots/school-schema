@@ -45,7 +45,7 @@ const description = Schema('string')
 
 const progress = Schema('number')
   .multiple(1.0)
-  .min(1)
+  .min(0)
   .max(100)
 
 const activityType = Schema('string').enum([
@@ -68,7 +68,7 @@ const ethnicity = Schema('string').enum([
 
 const score = Schema('number')
   .max(1000)
-  .min(1)
+  .min(0)
   .multiple(1.0)
   .faker('random.number')
 
