@@ -65,7 +65,7 @@ const addStudent = Schema()
   .others(false, 'invalid_fields')
   .required(['class', 'student'], 'missing_required_field')
 
-  const addStudents = Schema()
+const addStudents = Schema()
   .prop('class', firebaseRef)
   .prop(
     'students',
@@ -115,6 +115,7 @@ const assignLesson = Schema()
   .prop('lesson', uuid)
   .prop('class', firebaseRef)
   .prop('module', firebaseRef)
+  .prop('student', firebaseRef)
   .required(['lesson', 'class'])
 
 const setPasswordType = Schema()

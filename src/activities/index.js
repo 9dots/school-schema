@@ -4,6 +4,7 @@ const {
   firebaseRefObject,
   activityType,
   firebaseRef,
+  displayName,
   lessonTags,
   ethnicity,
   progress,
@@ -41,34 +42,31 @@ const subactivity = Schema()
 
 const subactivities = Schema('array').items(subactivity.schema)
 
-const activities = Schema()
+const activity = Schema()
   .prop('student', firebaseRef)
   .prop('module', firebaseRef)
   .prop('teachers', firebaseRefObject)
   .prop('class', firebaseRef)
-  .prop('task', firebaseRef)
-  .prop('lesson', firebaseRef)
-  .prop('moduleInstance', firebaseRef)
-  .prop('properties', properties)
+  .prop('displayName', displayName)
+  .prop('task', uuid)
+  .prop('index', Schema('number'))
+  .prop('instance', url)
+  .prop('id', uuid)
+  .prop('lesson', uuid)
   .prop('score', score)
-  .prop('active', Schema('boolean'))
   .prop('started', Schema('boolean'))
   .prop('completed', Schema('boolean'))
   .prop('progress', progress)
-  // .prop('subactivities', subactivities)
   .prop('url', url)
   .required([
-    'moduleInstance',
-    'completed',
-    'progress',
     'student',
     'teachers',
-    'started',
     'module',
+    'lesson',
     'class',
-    'score',
     'task',
-    'url'
+    'url',
+    'displayName'
   ])
 
 const add = Schema()
@@ -112,7 +110,7 @@ const maybeSetCompleted = Schema()
   .required(['activity'])
 
 // TODO: better name for module instance
-exports.default = activities
+exports.default = activity
 exports.maybeSetCompleted = validate(maybeSetCompleted)
 exports.externalUpdate = validate(externalUpdate)
 exports.setActive = validate(setActive)
