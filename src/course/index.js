@@ -159,6 +159,7 @@ const courseRef = Schema()
 
 exports.default = Course
 exports.lesson = lesson
+exports.task = task
 exports.create = validate(create)
 exports.update = validate(create)
 exports.addLesson = validate(addLesson)
