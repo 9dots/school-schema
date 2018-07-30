@@ -2,6 +2,7 @@ const Schema = require('@weo-edu/schema')
 const validate = require('@weo-edu/validate')
 const {
   firebaseRefObject,
+  termsVersion,
   passwordType,
   firebaseRef,
   displayName,
@@ -69,6 +70,10 @@ const addToSchool = Schema()
   .prop('role', Schema('string').enum(['teacher', 'student']))
   .required(['school'], 'missing_required_field')
 
+const setTermsVersion = Schema()
+  .prop('uid', firebaseRef)
+  .prop('version', Schema('number'))
+
 const setNav = Schema()
   .prop('uid', firebaseRef)
   .prop('class', firebaseRef)
@@ -102,6 +107,7 @@ exports.setAssignedLessonIndex = validate(setAssignedLessonIndex)
 exports.setInsecurePassword = validate(setInsecurePassword)
 exports.signInWithPassword = validate(signInWithPassword)
 exports.setCurrentSchool = validate(setCurrentSchool)
+exports.setTermsVersion = validate(setTermsVersion)
 exports.createStudents = validate(createStudents)
 exports.teacherSignUp = validate(teacherSignUp)
 exports.createStudent = validate(createStudent)
