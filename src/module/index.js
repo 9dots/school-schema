@@ -1,8 +1,8 @@
+const { default: Activity } = require('../activities')
 const { firebaseRef, uuid } = require('../utils')
-const Activity = require('../activities').default
 const validate = require('@weo-edu/validate')
 const Schema = require('@weo-edu/schema')
-const Course = require('../course').default
+const { default: Course, task } = require('../course')
 
 const taskProgress = Schema()
   .prop('score', Schema('number'))
@@ -26,5 +26,10 @@ const setActive = Schema()
   .prop('activity', Activity.schema)
   .required(['module', 'lesson', 'activity'])
 
+const getTaskTeacherView = Schema()
+  .prop('task', task.schema)
+  .required(['task'])
+
 exports.default = Course
 exports.setActive = validate(setActive)
+exports.getTaskTeacherView = validate(getTaskTeacherView)
