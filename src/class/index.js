@@ -111,6 +111,12 @@ const addCourse = Schema()
   .required(['class', 'course'], 'missing_required_field')
   .others(false, 'invalid_fields')
 
+const removeModule = Schema()
+  .prop('class', firebaseRef)
+  .prop('module', firebaseRef)
+  .required(['class', 'module'], 'missing_required_field')
+  .others(false, 'invalid_fields')
+
 const assignLesson = Schema()
   .prop('lesson', uuid)
   .prop('class', firebaseRef)
@@ -131,6 +137,7 @@ const updateDetails = Schema()
 
 exports.default = Class
 exports.setPasswordType = validate(setPasswordType)
+exports.removeModule = validate(removeModule)
 exports.removeStudents = validate(removeStudents)
 exports.updateDetails = validate(updateDetails)
 exports.removeStudent = validate(removeStudent)

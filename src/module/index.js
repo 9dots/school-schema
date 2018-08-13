@@ -1,8 +1,8 @@
+const { default: Course, task } = require('../course')
 const { default: Activity } = require('../activities')
 const { firebaseRef, uuid } = require('../utils')
 const validate = require('@weo-edu/validate')
 const Schema = require('@weo-edu/schema')
-const { default: Course, task } = require('../course')
 
 const taskProgress = Schema()
   .prop('score', Schema('number'))
